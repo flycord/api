@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUACORD - Whois Lookup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="rgb-text">LUACORD</h1>
+            <p class="subtitle">Developed by Mentalite</p>
+        </div>
+        
+        <div class="search-box">
+            <div class="search-container">
+                <input type="text" id="domainInput" placeholder="Enter domain or IP for WHOIS lookup...">
+                <button id="searchBtn"><i class="fas fa-search"></i> Lookup</button>
+            </div>
+        </div>
+        
+        <div class="result-container">
+            <div class="result-header">
+                <h2><i class="fas fa-info-circle"></i> WHOIS Results</h2>
+            </div>
+            <div class="result-content" id="whoisResults">
+                <p class="placeholder">Results will appear here after lookup...</p>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-box">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security Check</h3>
+                <p>Comprehensive domain security analysis</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-network-wired"></i>
+                <h3>Network Info</h3>
+                <p>Detailed network infrastructure data</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-history"></i>
+                <h3>History</h3>
+                <p>Domain registration history</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
