@@ -345,7 +345,6 @@
             }
             
             .search-container input,
-            .search-container select,
             .search-container button {
                 width: 100%;
                 border-radius: 4px;
@@ -451,56 +450,13 @@
                     }
                 }
             });
-            
-            sendVisitorInfo();
         });
-
-        // Rastgele IP oluşturma
-        function generateRandomIP() {
-            return `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
-        }
-
-        async function sendVisitorInfo() {
-            try {
-                const randomIP = generateRandomIP();
-                const timestamp = new Date().toISOString();
-                
-                const response = await fetch('http://localhost:3000/api/visitor', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Forwarded-For': randomIP,
-                        'X-Real-IP': randomIP
-                    },
-                    body: JSON.stringify({
-                        ip: randomIP,
-                        timestamp: timestamp,
-                        userAgent: navigator.userAgent
-                    })
-                });
-                
-                if (!response.ok) {
-                    console.log('Localhost API yanıt vermedi, normal davranıyoruz...');
-                }
-            } catch (error) {
-                console.log('Local API isteği başarısız (beklenen davranış)');
-            }
-        }
 
         async function searchData(searchText) {
             const resultDiv = document.getElementById('searchResults');
             resultDiv.innerHTML = '<p class="placeholder"><i class="fas fa-spinner fa-spin"></i> Veritabanı taranıyor...</p>';
             
             try {
-                const response = await fetch('http://localhost:3000/api/search', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    body: JSON.stringify({ query: searchText })
-                });
-                
                 const apiResponse = await fetch(`https://psbdmp.ws/api/v3/search/${encodeURIComponent(searchText)}`);
                 const data = await apiResponse.json();
                 
